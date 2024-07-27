@@ -23,7 +23,7 @@ body {
     border: 1px solid #ccc;
     padding: 0px 3px 3px 3px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 7px;
+
     background-color: var(--header-bg-color);
     color: var(--header-text-color);
     display: flex;

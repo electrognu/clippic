@@ -1,4 +1,29 @@
 document.addEventListener('DOMContentLoaded', function () {
+  // In popup.js, add event listeners to the checkboxes:
+  const htmlOutputCheckbox = document.getElementById('htmlOutput');
+  console.log(htmlOutputCheckbox); //*******************DEBUG */
+  const clipLinkCheckbox = document.getElementById('clipLink');
+
+
+  // Update the HTML_OUTPUT variable in background.js when the checkbox is toggled
+  htmlOutputCheckbox.addEventListener('change', function () {
+    if (htmlOutputCheckbox.checked) {
+      chrome.runtime.sendMessage({ action: "setHtmlOutput", htmlOutput: true });
+    } else {
+      chrome.runtime.sendMessage({ action: "setHtmlOutput", htmlOutput: false });
+    }
+  });
+
+  //update the CLIP_LINK variable in background.js when the checkbox is toggled
+  clipLinkCheckbox.addEventListener('change', function () {
+    if (clipLinkCheckbox.checked) {
+      chrome.runtime.sendMessage({ action: "setClipLink", clipLink: true });
+    } else {
+      chrome.runtime.sendMessage({ action: "setClipLink", clipLink: false });
+    }
+  });
+
+
   const saveButton = document.getElementById('saveButton');
   const clearButton = document.getElementById('clearButton');
   const autoDeleteCheckbox = document.getElementById('autoDeleteCheckbox');
